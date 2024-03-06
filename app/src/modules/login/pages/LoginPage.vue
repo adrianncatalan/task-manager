@@ -9,6 +9,12 @@
 
       <button type="submit">Login</button>
     </form>
+    <p>
+      If you are not registered, do it now!
+      <span>
+        <router-link to="/create-user">Create user</router-link>
+      </span>
+    </p>
   </div>
 </template>
 
@@ -21,9 +27,8 @@ export default {
     handleLogin() {
       login()
     }
-
   }
 }
 </script>
 
-<style></style>./LoginPage.vue
+<style></style>
