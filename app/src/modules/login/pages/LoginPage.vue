@@ -12,10 +12,11 @@
     <p>
       If you are not registered, do it now!
       <span>
-        <router-link to="/create-user">Create user</router-link>
+        <router-link to="/register">Create user</router-link>
       </span>
     </p>
   </div>
+  <router-view></router-view>
 </template>
 
 <script>

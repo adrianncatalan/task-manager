@@ -1,18 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import loginRoute from '@/modules/login/router/index.js';
+import { alwaysGoToLoginRoute, registerRoute, noPageFoundRoute } from '@/modules/shared/router/index.js';
 
 const routes = [
-    {
-        path: '/',
-        component: () => import(/* webpackChunkName: "Login" */ '@/modules/login/pages/LoginPage.vue')
-    },
-    {
-        path: '/create-user',
-        component: () => import(/* webpackChunkName: "Login" */ '@/modules/create_user/pages/createUserPage.vue')
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        component: () => import(/* webpackChunkName: "NoPageFound" */ '@/modules/shared/pages/NoPageFound.vue')
-    }
+    alwaysGoToLoginRoute,
+    loginRoute,
+    registerRoute,
+    noPageFoundRoute
 ]
 
 const router = createRouter({

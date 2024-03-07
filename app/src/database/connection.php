@@ -1,5 +1,4 @@
 <?php
-$dotenvFile = __DIR__ . '/.env';
 $servername = "localhost";
 $dbname = 'task-manager-db';
 $username = "root";
