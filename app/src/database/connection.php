@@ -1,15 +1,22 @@
 <?php
-$servername = "localhost";
-$dbname = 'task-manager-db';
-$username = "root";
-$password = "root";
+require('./db_config.php');
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+$db_connection = mysqli_connect(
+    $db_host,
+    $db_user,
+    $db_password,
+    $db_name,
+    $db_port
+);
+
+if (!$db_connection) die('Error connecting to the database!' . mysqli_connect_error());
+
+if (!mysqli_select_db($db_connection, $db_name)) {
+    die("Incorrect database name: " . mysqli_error($db_connection));
 }
-$conn = null;
+
+mysqli_set_charset($db_connection, "utf8");
+
+echo 'Successful database connection!';
+
+mysqli_close($db_connection);
